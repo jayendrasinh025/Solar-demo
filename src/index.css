@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F5F5F0;
+    color: #101C27;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @keyframes subtleFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-editorial-in {
+    animation: subtleFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+/* The Life of the Sun Scrub Hero exact styles */
+.sun-timeline-stage {
+  background: #000;
+  color: #fff;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+}
+#gl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.sun-timeline-stage .ui {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 63.2%;
+  display: grid;
+  justify-items: center;
+  padding: 0 20px;
+  pointer-events: none;
+}
+.sun-timeline-stage .cap {
+  position: relative;
+  width: 100%;
+  height: 54px;
+}
+.sun-timeline-stage .line {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  transition: opacity 0.2s linear, filter 0.2s linear;
+}
+.sun-timeline-stage .line.off {
+  opacity: 0;
+  filter: blur(5px);
+}
+.sun-timeline-stage .line h1 {
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(16px, 2.05vh, 21px);
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+}
+.sun-timeline-stage .line p {
+  margin-top: 6px;
+  font-size: clamp(12.5px, 1.55vh, 15px);
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.5);
+}
+.sun-timeline-stage .line p b {
+  font-weight: 500;
+  color: #fff;
+  margin-right: 7px;
+}
+#track {
+  position: relative;
+  width: min(47vh, 84vw);
+  height: 64px;
+  margin-top: clamp(14px, 3.2vh, 30px);
+  pointer-events: auto;
+  cursor: pointer;
+  outline: none;
+  touch-action: none;
+}
+#track::before {
+  content: "";
+  position: absolute;
+  inset: -8px -30px;
+}
+#ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+}
+#ticks i {
+  display: block;
+  width: 1.5px;
+  height: 44px;
+  background: #fff;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.sun-timeline-stage .ends {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 54px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.42);
+  pointer-events: none;
+}
+.sun-timeline-stage .ends span.on {
+  color: #fff;
+  font-weight: 500;
+}
